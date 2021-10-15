@@ -1,0 +1,19 @@
+name: ticket
+on: 
+  workflow_dispatch:
+    inputs:
+      couponcode:
+        description: 'coupon code'
+        required: true
+jobs:
+  ticket:
+    - uses: actions/checkout@v2
+
+    - name: "echo couponcode"
+      run: echo "${{ github.event.inputs.couponcode }}"
+
+    - name: "file mod"
+      run: chmod +x main.sh
+
+    - name: "exec coupon code"
+      run: ./main.sh ${{ github.event.inputs.couponcode }}
