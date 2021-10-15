@@ -7,13 +7,16 @@ on:
         required: true
 jobs:
   ticket:
-    - uses: actions/checkout@v2
+    runs-on: ubuntu-20.04
+    environment: NN
+    steps:
+      - uses: actions/checkout@v2
 
-    - name: "echo couponcode"
-      run: echo "${{ github.event.inputs.couponcode }}"
+      - name: "echo couponcode"
+        run: echo "${{ github.event.inputs.couponcode }}"
 
-    - name: "file mod"
-      run: chmod +x main.sh
+      - name: "file mod"
+        run: chmod +x main.sh
 
-    - name: "exec coupon code"
-      run: ./main.sh ${{ github.event.inputs.couponcode }}
+      - name: "exec coupon code"
+        run: ./main.sh ${{ secrets.ACC }} ${{ github.event.inputs.couponcode }}
