@@ -30,7 +30,7 @@ do
     -H 'Referer: https://couponweb.netmarble.com/coupon/ennt/1324' \
     -H 'Accept-Language: zh-TW,zh;q=0.9,en-US;q=0.8,en;q=0.7,zh-CN;q=0.6' \
     -H 'Cookie: _ga=GA1.2.220813182.1620094756; _gcl_au=1.1.219865550.1633076985; _fbp=fb.1.1633076986672.837927113' \
-    --data-raw "pid=${i}&channelCode=100&couponCode=${j}&worldId=20003012&nickname=&characterId=" \
+    --data-raw "pid=${i}&channelCode=100&couponCode=${j}&worldId=20103011&nickname=&characterId=" \
     --compressed)
     MSG=$(echo $RESULT | python3 -c "import sys, json; print(json.load(sys.stdin)['resultMessage'])")
     echo -e "\t${MSG}"
